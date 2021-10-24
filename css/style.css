@@ -181,6 +181,11 @@ li:focus i {
 }
 
 @media (min-width: 960px) {
+  body {
+    background: url(../images/backgroundDesktop.png) no-repeat center;
+    height: 100vh;
+  }
+
   main {
     width: 450px;
     height: 812px;
