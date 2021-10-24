@@ -17,11 +17,35 @@ body {
   place-items: center;
 }
 
+.badgeCord {
+  display: none;
+  position: absolute;
+  top: 0px;
+}
+
+.range {
+  position: absolute;
+  left: 8px;
+  z-index: 3;
+}
+
+.smashLine {
+  position: relative;
+  top: 154px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
 main {
-  background: url(../images/background.svg);
-  background-repeat: no-repeat;
-  width: 375px;
-  height: 812px;
+  background: url(../images/background.svg) no-repeat center/cover;
+  width: 100vw;
+  min-height: 812px;
+  height: 100vh;
+  position: relative;
+  top: 90px;
+  z-index: 1;
 }
 
 .container {
@@ -96,12 +120,78 @@ li:hover {
   color: #3e3c45;
 }
 
+li:hover,
+li:focus i {
+  animation: bounce 1s infinite alternate;
+  -webkit-animation: bounce 1s infinite alternate;
+}
+
 .fab {
   font-size: 27px;
-  margin-bottom: 5px;
+  margin-bottom: 0.25rem;
   color: #ffffff;
 }
 
 .fa-facebook-f {
   font-size: 24 px;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 5s linear;
+  -moz-animation: rotating 5s linear;
+  -ms-animation: rotating 5s linear;
+  -o-animation: rotating 5s linear;
+  animation: rotating 5s linear;
+}
+
+@media (max-width: 460px) {
+  #socialLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 960px) {
+  main {
+    width: 450px;
+    height: 812px;
+    border-radius: 5px;
+  }
+
+  .avatar {
+    margin: 10rem auto 0;
+  }
+
+  .badgeCord {
+    display: block;
+  }
 }
